@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcome_gradient_background"
+    tools:context=".WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/welcome_illustration"
+        android:layout_width="259dp"
+        android:layout_height="235dp"
+        android:layout_marginTop="132dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu_icon" />
+
+    <TextView
+        android:id="@+id/welcome_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:text="Siap Bantu Kamu Fokus !"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceHeadlineMedium"
+        android:textColor="#000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_illustration" />
+
+    <TextView
+        android:id="@+id/welcome_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="40dp"
+        android:text="Aplikasi cerdas untuk meningkatkan atensi dan konsentrasi. Dapatkan data real-time untuk membantu pelajar dan anak-anak tetap di jalur kesuksesan."
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_title" />
+
+    <LinearLayout
+        android:id="@+id/agreement_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/button_continue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <CheckBox
+            android:id="@+id/checkbox_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/text_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:linksClickable="true"
+            android:text="Saya menyetujui bahwa data penggunaan aplikasi akan direkam dan dikirim ke cloud untuk tujuan analisis sesuai dengan Kebijakan Privasi."
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="#333333" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_continue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:padding="14dp"
+        android:text="Mulai"
+        android:textAppearance="?attr/textAppearanceLabelLarge"
+        android:textStyle="bold"
+        android:enabled="false" app:cornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/footer_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/loader_group"
+        android:layout_width="238dp"
+        android:layout_height="210dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/loader_image"
+            android:layout_width="110dp"
+            android:layout_height="103dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Memuat..."
+            app:srcCompat="@drawable/loader_icon" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="210dp"
+            android:layout_height="52dp"
+            android:indeterminate="true"
+            android:progressBackgroundTint="#CCCCCC"
+            android:progressTint="#6750a4" />
+
+        <TextView
+            android:id="@+id/loader_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Hampir siap! Mari kita mulai..."
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/gpu_check_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="Checking GPU support..."
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="#333333"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/footer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:alpha="0.7"
+        android:autoLink="web"
+        android:gravity="center"
+        android:text="© 2025 NDFProject. All rights reserved.\nVisit: https://ndfproject.my.id"
+        android:textAppearance="?attr/textAppearanceCaption"
+        android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

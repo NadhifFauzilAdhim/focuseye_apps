@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bounding_box_color">#234567</color>
+    <color name="md_theme_onSurface">#FF1F1F1F</color>
+    <color name="focused_green">#4CAF50</color>
+    <color name="unfocused_red">#F44336</color>
+    <color name="history_background_light">#F5F7FA</color>
+    <color name="history_card_start_blue">#4A90E2</color>
+    <color name="history_card_end_blue">#50E3C2</color>
+    <color name="history_text_primary_dark">#212121</color>
+    <color name="history_text_secondary_dark">#757575</color>
+    <color name="static_background">#FFFFFF</color> <!-- Putih -->
+    <color name="static_card">#F8F9FA</color>       <!-- Putih abu soft -->
+    <color name="static_text_primary">#212121</color>   <!-- Hitam abu -->
+    <color name="static_text_secondary">#757575</color> <!-- Abu secondary -->
+    <color name="static_icon_tint">#9E9E9E</color>      <!-- Abu icon -->
+    <color name="user_card_color">#FFFFFF</color>
+    <color name="ungu_muda">#A855F7</color>
+    <!-- 🎨 Primary Palette -->
+    <color name="purple_50">#F3E5F5</color>
+    <color name="purple_100">#E1BEE7</color>
+    <color name="purple_200">#CE93D8</color>
+    <color name="purple_300">#BA68C8</color>
+    <color name="purple_400">#AB47BC</color>
+    <color name="purple_500">#9C27B0</color> <!-- Primary -->
+    <color name="purple_600">#8E24AA</color>
+    <color name="purple_700">#7B1FA2</color>
+    <color name="purple_800">#6A1B9A</color>
+    <color name="purple_900">#4A148C</color>
+
+    <!-- 🌈 Accent Colors -->
+    <color name="accent_yellow">#FFCA28</color>
+    <color name="accent_blue">#42A5F5</color>
+    <color name="accent_green">#66BB6A</color>
+    <color name="accent_pink">#EC407A</color>
+
+    <!-- 🖤 Neutrals -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <!-- 📱 Text Colors -->
+    <color name="text_primary_dark">#212121</color>
+    <color name="text_secondary_dark">#616161</color>
+    <color name="text_primary_light">#FFFFFF</color>
+    <color name="text_secondary_light">#BDBDBD</color>
+
+    <!-- 🎴 Card Background -->
+    <color name="card_light">#FFFFFF</color>
+    <color name="card_dark">#1E1E1E</color>
+
+    <!-- 🌅 Gradient Usage -->
+    <color name="gradient_start">@color/purple_200</color>
+    <color name="gradient_end">@color/purple_500</color>
+
+
+</resources>

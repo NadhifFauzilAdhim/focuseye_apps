@@ -42,6 +42,9 @@ class AddScheduleActivity : AppCompatActivity() {
         binding.buttonAddDetail.setOnClickListener {
             addNewDetailItem()
         }
+        binding.buttonSaveSchedule.setOnClickListener {
+            saveSchedule()
+        }
     }
 
     private fun setupToolbar() {

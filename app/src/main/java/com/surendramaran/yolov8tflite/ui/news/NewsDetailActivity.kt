@@ -36,7 +36,6 @@ class NewsDetailActivity : AppCompatActivity() {
             return
         }
 
-        // DIUBAH: Akses TextView secara langsung dari binding
         binding.collapsingToolbar.title = source ?: "Berita"
         binding.textViewArticleTitle.text = title ?: "Judul tidak tersedia"
         binding.textViewArticleSource.text = source ?: "Sumber tidak diketahui"
@@ -44,8 +43,8 @@ class NewsDetailActivity : AppCompatActivity() {
 
         Glide.with(this)
             .load(imageUrl)
-            .placeholder(R.drawable.news_no_image) // Pastikan ikon ini ada
-            .error(R.drawable.news_no_image)   // Pastikan ikon ini ada
+            .placeholder(R.drawable.news_no_image)
+            .error(R.drawable.news_no_image)
             .into(binding.imageViewArticleHeader)
 
         setupWebView(articleUrl)

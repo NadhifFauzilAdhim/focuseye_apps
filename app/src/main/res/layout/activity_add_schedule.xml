@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/welcome_gradient_background"
-    tools:context=".AddScheduleActivity">
+    tools:context=".ui.schedule.AddScheduleActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -19,10 +19,12 @@
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/add_schedule_menu"
             app:navigationIcon="@drawable/baseline_arrow_left_24"
-            app:navigationIconTint="#546E7A"
+            app:navigationIconTint="#37474F"
             android:background="@android:color/transparent"
-            app:title="Buat Jadwal Baru"
-            app:titleTextColor="#212121" />
+            app:title="Tambah Jadwal"
+            app:titleTextColor="#37474F"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -34,7 +36,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informasi Dasar"
+                android:textColor="#546E7A"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="4dp"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -52,32 +67,45 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilScheduleName"
-                        style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nama Jadwal"
-                        app:boxBackgroundColor="#FAFAFA"
-                        app:startIconTint="#546E7A"
-                        app:hintTextColor="@color/black">   <!-- ini yang bikin hint jadi hitam -->
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:startIconDrawable="@drawable/baseline_add_24"
+                        app:startIconTint="#9C27B0"
+                        app:hintTextColor="#7B1FA2"
+                        app:boxStrokeColor="#9C27B0"
+                        app:boxStrokeWidth="1dp"
+                        app:boxStrokeWidthFocused="2dp">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextScheduleName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textCapWords"
-                            android:textColor="@color/black" />
+                            android:textColor="#37474F"
+                            android:textSize="16sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilScheduleDesc"
-                        style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:hint="Deskripsi"
-                        app:boxBackgroundColor="#FAFAFA"
-                        app:startIconTint="#546E7A"
-                        app:hintTextColor="@color/black">   <!-- hint hitam -->
+                        android:layout_marginTop="16dp"
+                        android:hint="Deskripsi (Opsional)"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:startIconDrawable="@drawable/baseline_auto_stories_24"
+                        app:startIconTint="#9C27B0"
+                        app:hintTextColor="#7B1FA2"
+                        app:boxStrokeColor="#9C27B0">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextScheduleDesc"
@@ -85,18 +113,25 @@
                             android:layout_height="wrap_content"
                             android:gravity="top"
                             android:inputType="textMultiLine"
-                            android:minLines="2"
-                            android:textColor="#212121" />
+                            android:minLines="3"
+                            android:textColor="#37474F"
+                            android:textSize="16sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CFD8DC"
+                android:layout_marginVertical="28dp"
+                android:alpha="0.5"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -104,53 +139,67 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/baseline_date_range_24"
-                    app:tint="#0097A7" />
+                    app:tint="#546E7A" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Detail Jadwal"
-                    android:textColor="#212121"
-                    android:textSize="18sp"
+                    android:text="Detail Kegiatan"
+                    android:textColor="#546E7A"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewScheduleDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@android:color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeWidth="0dp">
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="1" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerViewScheduleDetails"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:nestedScrollingEnabled="false"
-                        tools:itemCount="2" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/buttonAddDetail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Tambah Mata Kuliah"
-                        android:textColor="@android:color/white"
-                        app:backgroundTint="?attr/colorPrimary"
-                        app:icon="@drawable/baseline_add_24"
-                        app:iconTint="#00796B" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonAddDetail"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="14dp"
+                android:text="Tambah Kegiatan"
+                android:textColor="#7B1FA2"
+                android:textSize="14sp"
+                app:strokeColor="#7B1FA2"
+                app:strokeWidth="1dp"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/baseline_add_24"
+                app:iconTint="#7B1FA2"
+                app:iconGravity="textStart"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Save Button Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#F8F9FA" 
+        android:padding="16dp"
+        android:elevation="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSaveSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simpan Jadwal"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/btn_gradient_soft"
+            app:backgroundTint="@null"
+            android:paddingVertical="14dp"
+            android:stateListAnimator="@null"
+            app:elevation="4dp" />
+    </LinearLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

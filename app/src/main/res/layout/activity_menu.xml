@@ -5,115 +5,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/welcome_gradient_background"
-    tools:context=".MenuActivity">
+    tools:context=".ui.home.MenuActivity">
 
-    <View
-        android:id="@+id/circleAccent"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:alpha="0.10"
-        android:background="@drawable/circle_accent"
-        android:translationX="-40dp"
-        android:translationY="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonLogout"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="Logout"
-        android:insetLeft="0dp"
-        android:insetTop="0dp"
-        android:insetRight="0dp"
-        android:insetBottom="0dp"
-        app:backgroundTint="@android:color/transparent"
-        app:icon="@drawable/baseline_logout"
-        app:iconTint="@color/history_text_secondary_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageViewAvatar"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="56dp"
-        android:background="@android:color/white"
-        android:padding="3dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-        app:strokeColor="@android:color/white"
-        app:strokeWidth="3dp"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textViewGreeting"
-        android:layout_width="0dp"
+    <!-- Header Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="32dp"
-        android:letterSpacing="0.02"
-        android:text="Selamat Datang 👋"
-        android:textAppearance="?attr/textAppearanceTitleLarge"
-        android:textColor="@color/history_text_secondary_dark"
-        app:layout_constraintBottom_toTopOf="@id/textViewUserName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageViewAvatar"
-        app:layout_constraintTop_toTopOf="@id/imageViewAvatar"
-        app:layout_constraintVertical_chainStyle="packed" />
+        android:paddingHorizontal="24dp"
+        android:paddingTop="24dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textViewUserName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:letterSpacing="0.01"
-        android:text="Nama Pengguna"
-        android:textAppearance="?attr/textAppearanceHeadlineMedium"
-        android:textColor="@color/history_text_primary_dark"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/imageViewAvatar"
-        app:layout_constraintEnd_toEndOf="@id/textViewGreeting"
-        app:layout_constraintStart_toStartOf="@id/textViewGreeting"
-        app:layout_constraintTop_toBottomOf="@id/textViewGreeting" />
+        <!-- Row 1: Avatar, Greeting/Name, Logout -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageViewAvatar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@android:color/white"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="2dp"
+            tools:src="@tools:sample/avatars" />
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewAvatar"
+            app:layout_constraintEnd_toStartOf="@id/clockContainer"
+            app:layout_constraintStart_toEndOf="@id/imageViewAvatar"
+            app:layout_constraintTop_toTopOf="@id/imageViewAvatar">
 
+            <TextView
+                android:id="@+id/textViewGreeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Selamat Datang,"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="@color/history_text_secondary_dark" />
 
-    <TextView
-        android:id="@+id/textViewServerStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:drawablePadding="6dp"
-        android:gravity="center_vertical"
-        android:text="Mengecek status server..."
-        android:textAppearance="?attr/textAppearanceLabelLarge"
-        android:textColor="@color/history_text_secondary_dark"
-        app:layout_constraintStart_toStartOf="@id/imageViewAvatar"
-        app:layout_constraintTop_toBottomOf="@id/imageViewAvatar"
-        tools:drawableStart="@drawable/status_dot_online"
-        tools:text="Server: Online" />
+            <TextView
+                android:id="@+id/textViewUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="23sp"
+                android:ellipsize="end"
+                android:text="Nama Pengguna"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="@color/history_text_primary_dark"
+                android:textStyle="bold" />
+        </LinearLayout>
 
+        <!-- Container for Clock and Buttons (Right Side) -->
+        <LinearLayout
+            android:id="@+id/clockContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textViewMotivation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="32dp"
-        android:lineSpacingExtra="2dp"
-        android:text="Ayo mulai hari dengan produktif 💡"
-        android:textAppearance="?attr/textAppearanceBodyLarge"
-        android:textColor="@color/history_text_secondary_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewServerStatus" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonLogout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="Logout"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                app:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/outline_logout_24"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="24dp"
+                app:iconTint="@color/history_text_secondary_dark"
+                app:rippleColor="?attr/colorControlHighlight" />
+
+            <TextClock
+                android:id="@+id/textClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:format12Hour="hh:mm a"
+                android:format24Hour="HH:mm"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textColor="@color/history_text_primary_dark"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Row 2: Motivation & Status (Grid-like below) -->
+        <TextView
+            android:id="@+id/textViewMotivation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:text="Ayo mulai hari dengan produktif 💡"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="@color/history_text_secondary_dark"
+            app:layout_constraintEnd_toStartOf="@id/textViewServerStatus"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewAvatar" />
+
+        <TextView
+            android:id="@+id/textViewServerStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical|end"
+            android:text="Server: Online"
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:textColor="@color/history_text_secondary_dark"
+            app:layout_constraintBaseline_toBaselineOf="@id/textViewMotivation"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:drawableStart="@drawable/status_dot_online" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textViewSection"
@@ -126,7 +146,7 @@
         android:textColor="@color/history_text_primary_dark"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewMotivation" />
+        app:layout_constraintTop_toBottomOf="@id/headerContainer" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardStartAnalysis"

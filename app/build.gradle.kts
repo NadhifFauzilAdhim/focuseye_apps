@@ -28,13 +28,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "\"192.168.21.131/\"")
-            buildConfigField("String", "BASE_IMG_URL", "\"http://192.168.21.131\"")
+            buildConfigField("String", "BASE_URL", "\"192.168.21.162/\"")
+            buildConfigField("String", "BASE_IMG_URL", "\"http://192.168.21.162\"")
         }
 
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://192.168.21.131/\"")
-            buildConfigField("String", "BASE_IMG_URL", "\"http://192.168.21.131\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.21.162/\"")
+            buildConfigField("String", "BASE_IMG_URL", "\"http://192.168.21.162\"")
         }
     }
 

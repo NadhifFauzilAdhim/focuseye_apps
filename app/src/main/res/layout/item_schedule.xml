@@ -5,97 +5,88 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="10dp"
+    android:layout_marginVertical="8dp"
     app:cardBackgroundColor="@android:color/white"
-    app:cardCornerRadius="24dp"
-    app:cardElevation="8dp"
-    app:strokeColor="?attr/colorPrimary"
-    app:strokeWidth="1dp">
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp">
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/iconContainer"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:cardBackgroundColor="?attr/colorPrimary"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="12dp"
-                android:contentDescription="Ikon Jadwal"
-                android:src="@drawable/baseline_date_range_24"
-                app:tint="@android:color/white" />
-
-        </com.google.android.material.card.MaterialCardView>
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/textViewScheduleName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:textColor="#212121"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/buttonDeleteSchedule"
-            app:layout_constraintStart_toEndOf="@id/iconContainer"
-            app:layout_constraintTop_toTopOf="@id/iconContainer"
-            tools:text="Jadwal Semester Genap 2025" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Jadwal Semester Genap" />
 
         <TextView
             android:id="@+id/textViewScheduleDesc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="4dp"
             android:textColor="#757575"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@id/textViewScheduleName"
             app:layout_constraintStart_toStartOf="@id/textViewScheduleName"
             app:layout_constraintTop_toBottomOf="@id/textViewScheduleName"
-            tools:text="Jadwal mata kuliah untuk semester genap." />
+            tools:text="Senin: 08.00 - 15.00" />
 
         <ImageButton
             android:id="@+id/buttonDeleteSchedule"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@android:color/transparent"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Hapus Jadwal"
             android:src="@drawable/baseline_delete_outline_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="?attr/colorPrimary" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#B0BEC5" />
 
         <View
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:background="#1F000000"
+            android:layout_marginTop="16dp"
+            android:background="#EEEEEE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iconContainer" />
+            app:layout_constraintTop_toBottomOf="@id/textViewScheduleDesc" />
 
-        <TextView
-            android:id="@+id/textViewScheduleDetailsPreview"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:lineSpacingExtra="5dp"
-            android:textColor="#004D40"
-            android:textSize="14sp"
-            android:textStyle="italic"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider"
-            tools:text="• Pemrograman Dasar\n• Kalkulus I\n• Fisika Dasar" />
+            app:layout_constraintTop_toBottomOf="@id/divider">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Mata Kuliah:"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:textColor="?attr/colorPrimary" />
+
+            <TextView
+                android:id="@+id/textViewScheduleDetailsPreview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#424242"
+                android:textSize="14sp"
+                tools:text="• Pemrograman Dasar (07:00 - 09:00)\n• Kalkulus I (10:00 - 12:00)" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
